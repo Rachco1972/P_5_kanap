@@ -1,12 +1,11 @@
-//------------------------------------------------------------------------
-// Récupération des produits de l'api
-//------------------------------------------------------------------------
-//fetch("http://localhost:3000/api/products")
-// quand tu as la réponse donne le résultat en json.
-//.then((res) => res.json())
-//.then((res) => console.log(res))
-// donne moi des informations en console sur ce qui est récupéré sous forme tableau.
+const cart = [];
 
+function retrieveItemsFromCache() {
+  const numberOfItems = localStorage.length;
+  for (let i = 0; i < numberOfItems; i++) {
+    const item = localStorage.getItem(localStorage.key(i));
 
-//const article = document.querySelector("#cart_items");
-//console.log(cart_items)
+    const itemObject = JSON.parse(item);
+    cart.push(itemObject);
+  }
+}
